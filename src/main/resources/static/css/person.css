@@ -1,0 +1,25 @@
+@charset "utf-8";
+body {
+  font-family: Arial, sans-serif;
+}
+
+.male {
+  background-color: lightblue;
+  padding: 20px;
+  margin: 10px;
+  border-radius: 5px;
+}
+
+.female {
+  background-color: lightpink;
+  padding: 20px;
+  margin: 10px;
+  border-radius: 5px;
+}
+
+img {
+  max-width: 100px;
+  height: 20%;
+  display: block;
+  margin-bottom: 10px;
+}
