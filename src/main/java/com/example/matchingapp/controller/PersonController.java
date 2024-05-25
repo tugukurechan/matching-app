@@ -12,17 +12,16 @@ import java.util.List;
 
 
 @Controller
-@RequestMapping("/person")
+@RequestMapping("/matching")
 public class PersonController {
     @GetMapping("")
-    public String index(Model model) {
-        List<Person> personList = new ArrayList<>();
+    public String login() {
+//        List<Person> personList = new ArrayList<>();
 
         //サンプルデータ
-        personList.add(new Person("ちゅうぐん","otoko.png","男性",new Date(),"chugun@example.com","こんにちは！","A",null));
-        personList.add(new Person("えいこ","onnna.png","女性",new Date(),"eiko@sample.com","中郡母です。","A",null));
+//        personList.add(new Person("ちゅうぐん","otoko.png","男性",new Date(),"chugun@example.com","こんにちは！","A",null));
+//        personList.add(new Person("えいこ","onnna.png","女性",new Date(),"eiko@sample.com","中郡母です。","A",null));
 
-        model.addAttribute("personList",personList);
-        return "person";
+        return "login";
     }
 }

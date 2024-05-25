@@ -3,13 +3,18 @@ package com.example.matchingapp.domain;
 import java.util.Date;
 import java.util.List;
 
+/**
+ * アプリを利用する人の情報
+ * @author tugukurechan
+ */
 public class Person {
-    private Integer id;
-    private String name;
+    private Integer id;/** not null */
+    private String name;/** not null */
     private String image;
-    private String gender;
-    private Date birthDay;
-    private String mailAddress;
+    private String gender;/** not null */
+    private Date birthDay;/** not null */
+    private String mailAddress;/** not null */
+    private String password;/** not null */
     private String comment;
     private String bloodType;
 
@@ -32,17 +37,26 @@ public class Person {
 
     @Override
     public String toString() {
-        return "People{" +
-                "birthDay=" + birthDay +
-                ", id=" + id +
+        return "Person{" +
+                "id=" + id +
                 ", name='" + name + '\'' +
                 ", image='" + image + '\'' +
                 ", gender='" + gender + '\'' +
+                ", birthDay=" + birthDay +
                 ", mailAddress='" + mailAddress + '\'' +
+                ", password='" + password + '\'' +
                 ", comment='" + comment + '\'' +
                 ", bloodType='" + bloodType + '\'' +
                 ", talkList=" + talkList +
                 '}';
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public Date getBirthDay() {
