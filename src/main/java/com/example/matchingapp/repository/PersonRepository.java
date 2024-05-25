@@ -47,7 +47,7 @@ public class PersonRepository {
 
     /**
      * insert&update文.
-     * 
+     *
      * @param person 挿入するpersonデータ
      * @return 使用したpersonデータ
      */
@@ -77,5 +77,16 @@ public class PersonRepository {
             template.update(updateSql,param);
         }
         return person;
+    }
+
+    /**
+     * idから情報を削除する.
+     *
+     * @param id id
+     */
+    public void deleteById(Integer id){
+        String deleteSql = "DELETE FROM persons WHERE id = :id;";
+        SqlParameterSource param = new MapSqlParameterSource().addValue("id",id);
+        template.update(deleteSql,param);
     }
 }
