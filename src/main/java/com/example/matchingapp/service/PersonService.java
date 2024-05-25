@@ -35,4 +35,12 @@ public class PersonService {
     public List<Person> findAll(){
         return repository.findAll();
     }
+
+    public Person save(Person person){
+        return repository.save(person);
+    }
+
+    public void deleteById(Integer id){
+        repository.deleteById(id);
+    }
 }
