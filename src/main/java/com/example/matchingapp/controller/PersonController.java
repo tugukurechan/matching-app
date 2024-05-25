@@ -1,6 +1,9 @@
 package com.example.matchingapp.controller;
 
 import com.example.matchingapp.domain.Person;
+import com.example.matchingapp.service.PersonService;
+import jakarta.servlet.ServletContext;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,7 +18,11 @@ import java.util.List;
 @Controller
 @RequestMapping("/matching")
 public class PersonController {
-    private
+    @Autowired
+    private ServletContext applcation;
+
+    @Autowired
+    private PersonService service;
 
     /**
      * ログイン画面を表示する.
