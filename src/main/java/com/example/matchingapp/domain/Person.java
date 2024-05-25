@@ -10,21 +10,21 @@ import java.util.List;
 public class Person {
     private Integer id;/** not null */
     private String name;/** not null */
-    private String image;
+    private String image;/** not null default 'default.png'*/
     private String gender;/** not null */
     private Date birthDay;/** not null */
-    private String mailAddress;/** not null */
+    private String mailAddress;/** not null unique*/
     private String password;/** not null */
-    private String comment;
-    private String bloodType;
+    private String comment;/** not null */
+    private String bloodType;/** not null */
 
-    private List<Person> matchList;
+    //private List<Person> matchList;
 
     public Person(){
         //default
     }
 
-    public Person(String name, String image, String gender, Date birthDay,String mailAddress, String comment, String bloodType, List<Person> matchList) {
+    public Person(String name, String image, String gender, Date birthDay,String mailAddress, String comment, String bloodType) {
         this.birthDay = birthDay;
         this.bloodType = bloodType;
         this.comment = comment;
@@ -32,7 +32,7 @@ public class Person {
         this.image = image;
         this.mailAddress = mailAddress;
         this.name = name;
-        this.matchList = matchList;
+        //this.matchList = matchList;
     }
 
     @Override
@@ -47,7 +47,6 @@ public class Person {
                 ", password='" + password + '\'' +
                 ", comment='" + comment + '\'' +
                 ", bloodType='" + bloodType + '\'' +
-                ", matchList=" + matchList +
                 '}';
     }
 
@@ -123,11 +122,11 @@ public class Person {
         this.name = name;
     }
 
-    public List<Person> getMatchList() {
-        return matchList;
-    }
-
-    public void setMatchList(List<Person> matchList) {
-        this.matchList = matchList;
-    }
+//    public List<Person> getMatchList() {
+//        return matchList;
+//    }
+//
+//    public void setMatchList(List<Person> matchList) {
+//        this.matchList = matchList;
+//    }
 }

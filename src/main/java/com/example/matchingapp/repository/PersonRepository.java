@@ -4,6 +4,7 @@ import com.example.matchingapp.domain.Person;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.jdbc.core.namedparam.BeanPropertySqlParameterSource;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.jdbc.core.namedparam.SqlParameterSource;
@@ -41,5 +42,40 @@ public class PersonRepository {
         String sql = "SELECT id,name,image,gender,birth_day,mail_address,password,comment,blood_type,match_list" +
                 " FROM persons ORDER BY id;";
         return template.query(sql,PERSON_ROW_MAPPER);
+    }
+
+
+    /**
+     * insert&update文.
+     * 
+     * @param person 挿入するpersonデータ
+     * @return 使用したpersonデータ
+     */
+    public Person save(Person person){
+        SqlParameterSource param = new BeanPropertySqlParameterSource(person);
+
+        if(person.getId() == null){
+            //friends(ID)というテーブルを作って、この人の友達管理テーブルを作成
+            String createSql = "CREATE TABLE friends"+person.getId()+
+                    "(id serial NOT NULL,friend_code Integer NOT NULL);";
+
+            //personsテーブルに追加
+            String insertSql = "INSERT INTO persons(id,name,image,gender,birth_day,mail_address," +
+                    "password,comment,blood_type) VALUES(:name,:image,:gender,:birthDay,:mailAddress," +
+                    ":password,:comment,:bloodType);";
+
+            //create table
+            template.update(createSql,param);
+
+            //insert
+            template.update(insertSql,param);
+        }else{
+            String updateSql = "UPDATE persons SET name = :name,image = :image," +
+                    "gender = :gender,birth_day = :birthDay,mail_address = :mailAddress," +
+                    "password = :password,comment = :comment,blood_type = :bloodType" +
+                    " WHERE id = :id;";
+            template.update(updateSql,param);
+        }
+        return person;
     }
 }
