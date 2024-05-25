@@ -34,7 +34,7 @@ public class PersonRepository {
 
     /**
      * 利用者情報の全表示.
-     * 
+     *
      * @return 利用者の全情報
      */
     public List<Person> findAll(){
