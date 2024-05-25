@@ -15,7 +15,7 @@ import java.util.List;
 @Controller
 @RequestMapping("/matching")
 public class PersonController {
-    private 
+    private
 
     /**
      * ログイン画面を表示する.

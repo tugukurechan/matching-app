@@ -18,13 +18,13 @@ public class Person {
     private String comment;
     private String bloodType;
 
-    private List<Person> talkList;
+    private List<Person> matchList;
 
     public Person(){
         //default
     }
 
-    public Person(String name, String image, String gender, Date birthDay,String mailAddress, String comment, String bloodType, List<Person> talkList) {
+    public Person(String name, String image, String gender, Date birthDay,String mailAddress, String comment, String bloodType, List<Person> matchList) {
         this.birthDay = birthDay;
         this.bloodType = bloodType;
         this.comment = comment;
@@ -32,7 +32,7 @@ public class Person {
         this.image = image;
         this.mailAddress = mailAddress;
         this.name = name;
-        this.talkList = talkList;
+        this.matchList = matchList;
     }
 
     @Override
@@ -47,7 +47,7 @@ public class Person {
                 ", password='" + password + '\'' +
                 ", comment='" + comment + '\'' +
                 ", bloodType='" + bloodType + '\'' +
-                ", talkList=" + talkList +
+                ", matchList=" + matchList +
                 '}';
     }
 
@@ -123,11 +123,11 @@ public class Person {
         this.name = name;
     }
 
-    public List<Person> getTalkList() {
-        return talkList;
+    public List<Person> getMatchList() {
+        return matchList;
     }
 
-    public void setTalkList(List<Person> talkList) {
-        this.talkList = talkList;
+    public void setMatchList(List<Person> matchList) {
+        this.matchList = matchList;
     }
 }
