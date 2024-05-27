@@ -9,6 +9,7 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -43,7 +44,10 @@ public class AdministratorController {
      * @return 管理者情報登録画面
      */
     @PostMapping("/insert")
-    public String insert(RegisterForm form, RedirectAttributes redirectAttributes) {
+    public String insert(@Validated RegisterForm form, RedirectAttributes redirectAttributes, BindingResult result) {
+        if(result.hasErrors()){
+            return index(form);
+        }
         Administrator administrator = new Administrator();
         BeanUtils.copyProperties(form, administrator);
         service.insert(administrator);
@@ -73,5 +77,11 @@ public class AdministratorController {
         session.setAttribute("administratorName",administrator.getName());
         return "redirect:/person/showHome";
         //ログイン処理が終わり、ホームに遷移
+    }
+
+    @GetMapping("/logout")
+    public String logout(LoginForm form){
+        session.invalidate();
+        return "redirect:/";
     }
 }
