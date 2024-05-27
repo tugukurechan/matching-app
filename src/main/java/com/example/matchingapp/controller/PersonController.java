@@ -39,8 +39,7 @@ public class PersonController {
 
         return "login";
     }
-
-
+    
     /**
      * ログインが成功するとhome画面に移動する.
      *
@@ -64,6 +63,7 @@ public class PersonController {
     @PostMapping("/register")
     public String register(){
         //
+
         return "redirect:/matching";
     }
 }
