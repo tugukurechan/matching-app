@@ -7,11 +7,15 @@ import java.util.Date;
 
 
 public class RegisterForm {
+    @NotBlank(message = "名前は必須です")
+    private String name;
     @NotBlank(message = "メールアドレスが空です")
     private String email;
     @NotBlank(message = "パスワードは入力必須です")
     private String password;
+
     private Date birthday;
+
     private String gender;
 
     @Override
