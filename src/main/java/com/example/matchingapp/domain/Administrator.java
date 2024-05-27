@@ -5,7 +5,7 @@ package com.example.matchingapp.domain;
  *
  * @author tugukurechan
  */
-public class Administrators {
+public class Administrator {
     /** id */
     private Integer id;
     /** 名前 */
