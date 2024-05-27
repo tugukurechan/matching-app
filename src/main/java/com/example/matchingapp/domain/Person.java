@@ -14,7 +14,6 @@ public class Person {
     private String gender;/** not null */
     private Date birthDay;/** not null */
     private String mailAddress;/** not null unique*/
-    private String password;/** not null */
     private String comment;/** not null */
     private String bloodType;/** not null */
 
@@ -44,19 +43,12 @@ public class Person {
                 ", gender='" + gender + '\'' +
                 ", birthDay=" + birthDay +
                 ", mailAddress='" + mailAddress + '\'' +
-                ", password='" + password + '\'' +
                 ", comment='" + comment + '\'' +
                 ", bloodType='" + bloodType + '\'' +
                 '}';
     }
 
-    public String getPassword() {
-        return password;
-    }
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
 
     public Date getBirthDay() {
         return birthDay;
