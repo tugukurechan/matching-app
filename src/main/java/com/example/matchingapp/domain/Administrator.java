@@ -1,5 +1,7 @@
 package com.example.matchingapp.domain;
 
+import java.util.Date;
+
 /**
  * 管理者情報のドメインクラス
  *
@@ -8,20 +10,23 @@ package com.example.matchingapp.domain;
 public class Administrator {
     /** id */
     private Integer id;
-    /** 名前 */
-    private String name;
     /** メアド */
     private String mailAddress;
     /** パスワード */
     private String password;
+    /** 誕生日 */
+    private Date birthDay;
+    /** 性別 */
+    private String gender;
 
     @Override
     public String toString() {
-        return "Administrators{" +
+        return "Administrator{" +
                 "id=" + id +
-                ", name='" + name + '\'' +
                 ", mailAddress='" + mailAddress + '\'' +
                 ", password='" + password + '\'' +
+                ", birthDay=" + birthDay +
+                ", gender='" + gender + '\'' +
                 '}';
     }
 
@@ -31,14 +36,6 @@ public class Administrator {
 
     public void setId(Integer id) {
         this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public String getMailAddress() {
@@ -55,5 +52,21 @@ public class Administrator {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public Date getBirthDay() {
+        return birthDay;
+    }
+
+    public void setBirthDay(Date birthDay) {
+        this.birthDay = birthDay;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
     }
 }
