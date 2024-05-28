@@ -11,7 +11,7 @@
     <h1>ログイン</h1>
     <form th:action="@{/login}" method="post" th:object="${loginForm}">
         <div class="form-group">
-            <div class="alert alert-danger" th:if="${error_message}" th:text="${error_message}">
+            <div class="alert alert-danger" th:if="${error_message}" th:text="${error_message}" style="color:red">
                 <p>メールアドレスまたはパスワードが間違っています</p>
             </div>
         </div>

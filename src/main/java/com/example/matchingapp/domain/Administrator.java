@@ -1,5 +1,6 @@
 package com.example.matchingapp.domain;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 /**
@@ -17,7 +18,7 @@ public class Administrator {
     /** パスワード */
     private String password;
     /** 誕生日 */
-    private Date birthDay;
+    private LocalDate birthDay;
     /** 性別 */
     private String gender;
 
@@ -65,11 +66,11 @@ public class Administrator {
         this.password = password;
     }
 
-    public Date getBirthDay() {
+    public LocalDate getBirthDay() {
         return birthDay;
     }
 
-    public void setBirthDay(Date birthDay) {
+    public void setBirthDay(LocalDate birthDay) {
         this.birthDay = birthDay;
     }
 

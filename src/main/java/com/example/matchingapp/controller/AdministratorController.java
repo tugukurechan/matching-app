@@ -44,10 +44,13 @@ public class AdministratorController {
      * @return 管理者情報登録画面
      */
     @PostMapping("/insert")
-    public String insert(@Validated RegisterForm form, RedirectAttributes redirectAttributes, BindingResult result) {
+    public String insert(@Validated RegisterForm form,BindingResult result, RedirectAttributes redirectAttributes) {
+//        System.out.println("insertが呼ばれました");
+//        System.out.println(form);
         if(result.hasErrors()){
             return index(form);
         }
+//        System.out.println("エラーなし");
         Administrator administrator = new Administrator();
         BeanUtils.copyProperties(form, administrator);
         service.insert(administrator);
@@ -55,7 +58,7 @@ public class AdministratorController {
         return "redirect:/";
     }
 
-    @GetMapping("/")
+    @GetMapping("")
     public String toLogin(LoginForm form){
         return "administrator/login";
     }
@@ -67,7 +70,7 @@ public class AdministratorController {
      * @param model リクエストスコープ
      * @return 成功したらホーム画面へ
      */
-    @GetMapping("/login")
+    @PostMapping("/login")
     public String login(LoginForm form, Model model){
         Administrator administrator = service.login(form.getMailAddress(), form.getMailAddress());
         if(administrator == null){
