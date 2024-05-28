@@ -51,6 +51,7 @@ public class AdministratorController {
      */
     @PostMapping("/insert")
     public String insert(@Validated RegisterForm form,BindingResult result ,RedirectAttributes redirectAttributes,Model model) {
+        System.out.println(form);
         if(result.hasErrors()){
             return toInsert(form,model);
         }
