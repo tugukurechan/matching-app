@@ -16,6 +16,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+
 @Controller
 @RequestMapping("/")
 public class AdministratorController {
@@ -32,7 +35,10 @@ public class AdministratorController {
      * @return 管理者情報登録画面
      */
     @GetMapping("/toInsert")
-    public String index(RegisterForm form){
+    public String toInsert(RegisterForm form,Model model){
+        LocalDate currentDate = LocalDate.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        model.addAttribute("initialDate",currentDate.format(formatter));
         return "administrator/register";
     }
 
@@ -44,9 +50,9 @@ public class AdministratorController {
      * @return 管理者情報登録画面
      */
     @PostMapping("/insert")
-    public String insert(@Validated RegisterForm form, RedirectAttributes redirectAttributes, BindingResult result) {
+    public String insert(@Validated RegisterForm form,BindingResult result ,RedirectAttributes redirectAttributes,Model model) {
         if(result.hasErrors()){
-            return index(form);
+            return toInsert(form,model);
         }
         Administrator administrator = new Administrator();
         BeanUtils.copyProperties(form, administrator);

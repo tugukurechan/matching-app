@@ -32,7 +32,7 @@ public class AdministratorRepository {
      * @return 管理者情報
      */
     public Administrator load(Integer id){
-        String sql = "SELECT id,name,mail_address,password FROM administrators WHERE id = :id;";
+        String sql = "SELECT id,name,mail_address,password,birth_day,gender FROM administrators WHERE id = :id;";
         SqlParameterSource param = new MapSqlParameterSource().addValue("id",id);
         return template.queryForObject(sql,param,ADMINISTRATOR_ROW_MAPPER);
     }

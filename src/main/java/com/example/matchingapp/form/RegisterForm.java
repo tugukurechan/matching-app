@@ -1,11 +1,14 @@
 package com.example.matchingapp.form;
 
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.*;
 
 import java.util.Date;
 
-
+/**
+ * 登録時に使うフォームクラス
+ *
+ * @author takeru.chugun
+ */
 public class RegisterForm {
     @NotBlank(message = "名前は入力必須です")
     private String name;
@@ -14,8 +17,9 @@ public class RegisterForm {
     @NotBlank(message = "パスワードは入力必須です")
     @Size(max = 16, min = 8, message = "パスワードは8文字以上16文字以下")
     private String password;
-    @NotBlank(message = "誕生日は入力必須です")
-    private Date birthday;
+//    @FutureOrPresent(message="")
+//    @NotNull(message = "誕生日は入力必須です")
+    private Date birthDay;
 
     private String gender;
 
@@ -25,7 +29,7 @@ public class RegisterForm {
                 "name='" + name + '\'' +
                 ", mailAddress='" + mailAddress + '\'' +
                 ", password='" + password + '\'' +
-                ", birthday=" + birthday +
+                ", birthDay=" + birthDay +
                 ", gender='" + gender + '\'' +
                 '}';
     }
@@ -54,12 +58,12 @@ public class RegisterForm {
         this.password = password;
     }
 
-    public Date getBirthday() {
-        return birthday;
+    public Date getBirthDay() {
+        return birthDay;
     }
 
-    public void setBirthday(Date birthday) {
-        this.birthday = birthday;
+    public void setBirthDay(Date birthDay) {
+        this.birthDay = birthDay;
     }
 
     public String getGender() {
