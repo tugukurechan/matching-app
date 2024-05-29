@@ -71,14 +71,14 @@ public class AdministratorController {
      * @return 成功したらホーム画面へ
      */
     @PostMapping("/login")
-    public String login(LoginForm form, Model model){
-        Administrator administrator = service.login(form.getMailAddress(), form.getMailAddress());
+    public String login(LoginForm form,Model model){
+        Administrator administrator = service.login(form.getMailAddress(), form.getPassword());
         if(administrator == null){
             model.addAttribute("error_message","メールアドレスまたはパスワードが異なります");
             return "administrator/login";
         }
-        session.setAttribute("administratorName",administrator.getName());
-        return "redirect:/person/showHome";
+        session.setAttribute("administrator",administrator);
+        return "redirect:/matching/home";
         //ログイン処理が終わり、ホームに遷移
     }
 

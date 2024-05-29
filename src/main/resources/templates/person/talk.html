@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="jp" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Talk</title>
+</head>
+<body>
+    <div class="header">
+        <h1>マッチングアプリ</h1>
+        <div class="right-top-tab">
+            <span th:text="${session.administrator.name} + 'さん、こんにちは'"></span>
+            <div class="right-top-tab-content">
+                <a href="#" th:href="@{/logout}">ログアウト</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="tabs">
+        <a href="#" th:href="@{/matching/home}">ホーム</a>
+        <a href="#" th:href="@{/matching/talk}">トーク</a>
+        <a href="#" th:href="@{/matching/myPage}">マイページ</a>
+    </div>
+
+
+    
+</body>
+</html>

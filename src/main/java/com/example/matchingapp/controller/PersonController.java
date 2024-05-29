@@ -14,48 +14,44 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-
+/**
+ * ログイン後の処理をするコントローラクラス.
+ *
+ * @author tugukurechan
+ */
 @Controller
 @RequestMapping("/matching")
 public class PersonController {
     @Autowired
-    private ServletContext applcation;
-
-    @Autowired
     private PersonService service;
 
-//    /**
-//     * ログイン画面を表示する.
-//     *
-//     * @return ログイン画面
-//     */
-//    @GetMapping("")
-//    public String login() {
-//        return "login";
-//    }
-//
-//    /**
-//     * ログインが成功するとhome画面に移動する.
-//     *
-//     * @return ホーム画面
-//     */
-//    @PostMapping("/login")
-//    public String loginCheck(){
-//        return "home";
-//    }
-//
-//    /**
-//     * 新規登録画面へ遷移する.
-//     *
-//     * @return 新規登録画面
-//     */
-//    @GetMapping("/toRegister")
-//    public String toRegister(){
-//        return "register";
-//    }
-//
-//    @PostMapping("/register")
-//    public String register(){
-//        return "redirect:/matching";
-//    }
+    /**
+     * homeが押されたらhomeに遷移
+     *
+     * @return home画面
+     */
+    @GetMapping("/home")
+    public String toHome(){
+        return "person/home";
+    }
+
+    /**
+     * talkが押されたらtalkに遷移
+     *
+     * @return talk画面
+     */
+    @GetMapping("/talk")
+    public String toTalk(){
+        return "person/talk";
+    }
+
+    /**
+     * my pageが押されたらmy pageに遷移
+     *
+     * @return my page画面
+     */
+    @GetMapping("/myPage")
+    public String toMyPage(){
+        return "person/my-page";
+    }
 }
