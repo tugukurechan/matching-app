@@ -9,7 +9,11 @@
     <div class="container">
       <h1>meetへようこそ!</h1>
       <h2>新規登録</h2>
-      <form th:action="@{/insert}" th:object="${registerForm}" method="post">
+      <form
+        th:action="@{/meet/insert}"
+        th:object="${registerForm}"
+        method="post"
+      >
         <div class="form-group">
           <div th:errors="*{name}" style="color: red"></div>
           <label for="name">名前</label>

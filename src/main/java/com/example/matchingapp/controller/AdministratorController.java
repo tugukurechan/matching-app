@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
-@RequestMapping("/")
+@RequestMapping("/meet")
 public class AdministratorController {
     @Autowired
     private AdministratorService service;
@@ -32,7 +32,7 @@ public class AdministratorController {
      * @return 管理者情報登録画面
      */
     @GetMapping("/toInsert")
-    public String index(RegisterForm form){
+    public String toInsert(RegisterForm form){
         return "administrator/register";
     }
 
@@ -46,16 +46,16 @@ public class AdministratorController {
     @PostMapping("/insert")
     public String insert(@Validated RegisterForm form,BindingResult result, RedirectAttributes redirectAttributes) {
         if(result.hasErrors()){
-            return index(form);
+            return toInsert(form);
         }
         Administrator administrator = new Administrator();
         BeanUtils.copyProperties(form, administrator);
         service.insert(administrator);
         redirectAttributes.addFlashAttribute("administrator", administrator);
-        return "redirect:/";
+        return "redirect:/meet/";
     }
 
-    @GetMapping("")
+    @GetMapping("/toLogin")
     public String toLogin(LoginForm form){
         return "administrator/login";
     }
@@ -75,7 +75,7 @@ public class AdministratorController {
             return "administrator/login";
         }
         session.setAttribute("administrator",administrator);
-        return "redirect:/matching/home";
+        return "redirect:/meet/home";
         //ログイン処理が終わり、ホームに遷移
     }
 
@@ -88,6 +88,6 @@ public class AdministratorController {
     @GetMapping("/logout")
     public String logout(LoginForm form){
         session.invalidate();
-        return "redirect:/";
+        return "redirect:/meet/";
     }
 }

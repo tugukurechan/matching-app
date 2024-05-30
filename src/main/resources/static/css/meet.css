@@ -246,6 +246,22 @@ main h3 {
   border: 1px solid rgba(255, 255, 255, 0.9); /*枠線。透明度を変更して濃くします。*/
 }
 
+/** 「はじめる」ボタン */
+.start {
+  text-decoration: none;
+  display: block;
+  background: red;
+  border: 1px solid rgba(255, 255, 255, 0.3); /*枠線の幅、線種、色。255,255,255は白のことで0.3は色が30%出た状態。*/
+  color: #fff; /*文字色*/
+  padding: 0.5rem; /*余白*/
+  margin: 0.5rem 0; /*メニューの外側に空けるスペース。上下、左右。*/
+  border-radius: 5px; /*角を丸くする指定*/
+}
+.start:hover {
+  background: red; /*背景色。透明度を変更して濃くします。*/
+  border: 1px solid rgba(255, 255, 255, 0.9); /*枠線。透明度を変更して濃くします。*/
+}
+
 /*900px以下画面でのメニュー
 ---------------------------------------------------------------------------*/
 /*メニューブロック全体*/
@@ -388,7 +404,7 @@ section {
   color: #fff; /*文字色*/
 }
 #section1::before {
-  background: url("../img/meet/section1.jpg") no-repeat center center / cover; /*背景画像の読み込み*/
+  background: url("/img/meet/section1.jpg") no-repeat center center / cover; /*背景画像の読み込み*/
 }
 
 /*section2の設定*/
