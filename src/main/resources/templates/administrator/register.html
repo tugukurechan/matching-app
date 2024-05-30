@@ -1,46 +1,70 @@
 <!DOCTYPE html>
 <html lang="jp" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>新規登録</title>
-    <link rel="stylesheet" th:href="@{/css/register.css}">
-</head>
-<body>
+    <link rel="stylesheet" th:href="@{/css/register.css}" />
+  </head>
+  <body>
     <div class="container">
-        <h1>新規登録</h1>
-        <form th:action="@{/insert}" th:object="${registerForm}" method="post">
-            <div class="form-group">
-                <div th:errors="*{name}" style="color:red"></div>
-                <label for="name">名前</label>
-                <input type="text" id="name" name="name" placeholder="山田太郎" th:field="*{name}">
-            </div>
-            <div class="form-group">
-                <div th:errors="*{mailAddress}" style="color:red"></div>
-                <label for="email">メールアドレス</label>
-                <input type="email" id="email" name="mailAddress" placeholder="yamada@sample.com" th:field = "*{mailAddress}">
-            </div>
-            <div class="form-group">
-                <div th:errors="*{password}" style="color:red"></div>
-                <label for="password">パスワード</label>
-                <input type="password" id="password" name="password" placeholder="password" th:field = "*{password}">
-            </div>
-            <div class="form-group">
-                <div th:errors="*{birthDay}" style="color:red"></div>
-                <label for="birthday">誕生日</label>
-                <input type="date" id="birthday" name="birthDay" th:field="*{birthDay}">
-            </div>
-            <div class="form-group">
-                <label for="gender">性別</label>
-                <select id="gender" name="gender" required>
-                    <option th:value="男性">男性</option>
-                    <option th:value="女性">女性</option>
-                    <option th:value="その他">その他</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <button type="submit">登録</button>
-            </div>
-        </form>
+      <h1>meetへようこそ!</h1>
+      <h2>新規登録</h2>
+      <form th:action="@{/insert}" th:object="${registerForm}" method="post">
+        <div class="form-group">
+          <div th:errors="*{name}" style="color: red"></div>
+          <label for="name">名前</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            placeholder="山田太郎"
+            th:field="*{name}"
+          />
+        </div>
+        <div class="form-group">
+          <div th:errors="*{mailAddress}" style="color: red"></div>
+          <label for="email">メールアドレス</label>
+          <input
+            type="email"
+            id="email"
+            name="mailAddress"
+            placeholder="yamada@sample.com"
+            th:field="*{mailAddress}"
+          />
+        </div>
+        <div class="form-group">
+          <div th:errors="*{password}" style="color: red"></div>
+          <label for="password">パスワード</label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            placeholder="password"
+            th:field="*{password}"
+          />
+        </div>
+        <div class="form-group">
+          <div th:errors="*{birthDay}" style="color: red"></div>
+          <label for="birthday">誕生日</label>
+          <input
+            type="date"
+            id="birthday"
+            name="birthDay"
+            th:field="*{birthDay}"
+          />
+        </div>
+        <div class="form-group">
+          <label for="gender">性別</label>
+          <select id="gender" name="gender" required>
+            <option th:value="男性">男性</option>
+            <option th:value="女性">女性</option>
+            <option th:value="その他">その他</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <button type="submit">登録</button>
+        </div>
+      </form>
     </div>
-</body>
+  </body>
 </html>

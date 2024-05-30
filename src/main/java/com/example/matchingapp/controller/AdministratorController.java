@@ -45,12 +45,9 @@ public class AdministratorController {
      */
     @PostMapping("/insert")
     public String insert(@Validated RegisterForm form,BindingResult result, RedirectAttributes redirectAttributes) {
-//        System.out.println("insertが呼ばれました");
-//        System.out.println(form);
         if(result.hasErrors()){
             return index(form);
         }
-//        System.out.println("エラーなし");
         Administrator administrator = new Administrator();
         BeanUtils.copyProperties(form, administrator);
         service.insert(administrator);
@@ -82,6 +79,12 @@ public class AdministratorController {
         //ログイン処理が終わり、ホームに遷移
     }
 
+    /**
+     * ログアウトする.
+     *
+     * @param form ログアウトフォーム
+     * @return ログイン画面
+     */
     @GetMapping("/logout")
     public String logout(LoginForm form){
         session.invalidate();

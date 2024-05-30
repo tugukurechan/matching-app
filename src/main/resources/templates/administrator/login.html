@@ -1,33 +1,48 @@
 <!DOCTYPE html>
 <html lang="jp" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <title>ログイン</title>
-    <link rel="stylesheet" th:href="@{/css/login.css}">
-</head>
-<body>
-<div class="container">
-    <h1>マッチングしましょう！</h1>
-    <h1>ログイン</h1>
-    <form th:action="@{/login}" method="post" th:object="${loginForm}">
+  <head>
+    <meta charset="UTF-8" />
+    <title>meet</title>
+    <link rel="stylesheet" th:href="@{/css/login.css}" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>meet</h1>
+      <h1>ログイン</h1>
+      <form th:action="@{/login}" method="post" th:object="${loginForm}">
         <div class="form-group">
-            <div class="alert alert-danger" th:if="${error_message}" th:text="${error_message}" style="color:red">
-                <p>メールアドレスまたはパスワードが間違っています</p>
-            </div>
+          <div
+            class="alert alert-danger"
+            th:if="${error_message}"
+            th:text="${error_message}"
+            style="color: red"
+          >
+            <p>メールアドレスまたはパスワードが間違っています</p>
+          </div>
         </div>
         <div class="form-group">
-            <label for="email">メールアドレス</label>
-            <input type="email" id="email" name="mailAddress" th:field="*{mailAddress}">
+          <label for="email">メールアドレス</label>
+          <input
+            type="email"
+            id="email"
+            name="mailAddress"
+            th:field="*{mailAddress}"
+          />
         </div>
         <div class="form-group">
-            <label for="password">パスワード</label>
-            <input type="password" id="password" name="password" th:field="*{password}">
+          <label for="password">パスワード</label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            th:field="*{password}"
+          />
         </div>
         <div class="form-group">
-            <button type="submit">ログイン</button>
+          <button type="submit">ログイン</button>
         </div>
-    </form>
-    <p><a th:href="@{/toInsert}">新規登録はこちらから</a></p>
-</div>
-</body>
+      </form>
+      <p><a th:href="@{/toInsert}">新規登録はこちらから</a></p>
+    </div>
+  </body>
 </html>
