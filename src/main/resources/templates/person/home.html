@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="jp" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>マッチングアプリ</title>
+    <link rel="stylesheet" th:href="@{/css/home.css}">
+</head>
+<body>
+    <div class="header">
+        <h1>マッチングアプリ</h1>
+        <div class="right-top-tab">
+            <span th:text="${session.administrator.name} + 'さん、こんにちは'"></span>
+            <div class="right-top-tab-content">
+                <a href="#" th:href="@{/logout}">ログアウト</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="tabs">
+        <a href="#" th:href="@{/matching/home}">ホーム</a>
+        <a href="#" th:href="@{/matching/talk}">トーク</a>
+        <a href="#" th:href="@{/matching/myPage}">マイページ</a>
+    </div>
+
+    <div class="content">
+        <div class="profile">
+            <h2>相手の基本情報</h2>
+            <img th:src="${profileImageUrl}" alt="プロフィール写真" style="max-width: 200px;"/>
+            <p>名前: <span th:text="${profileName}">相手の名前</span></p>
+            <p>年齢: <span th:text="${profileAge}">年齢</span></p>
+            <p>紹介: <span th:text="${profileIntroduction}">紹介文</span></p>
+        </div>
+    </div>
+
+    <div class="like-dislike">
+        <button type="button" th:onclick="|window.location='@{/like/' + ${profileId}}'|">いいね</button>
+        <button type="button" th:onclick="|window.location='@{/bad/' + ${profileId}}'|">なし</button>
+    </div>
+
+</body>
+</html>
