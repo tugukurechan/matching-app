@@ -1,62 +1,65 @@
 @charset "utf-8";
 
 body {
-    font-family: Arial, sans-serif;
+  font-family: Arial, sans-serif;
+  background: #7cbbc4;
 }
-.header, .tabs, .footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px;
-    background-color: #f0f0f0;
+.header,
+.tabs,
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: #f0f0f0;
 }
 .tabs {
-    border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
 }
 .tabs a {
-    padding: 10px;
-    text-decoration: none;
-    color: #333;
+  padding: 10px;
+  text-decoration: none;
+  color: #333;
 }
 .tabs a:hover {
-    background-color: #ddd;
+  background-color: #ddd;
 }
 .content {
-    padding: 20px;
+  padding: 20px;
 }
 .like-dislike {
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
 }
 .like-dislike button {
-    margin: 0 10px;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
+  margin: 0 10px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
 }
 .right-top-tab {
-    position: relative;
-    display: inline-block;
+  position: relative;
+  display: inline-block;
 }
 .right-top-tab-content {
-    display: none;
-    position: absolute;
-    right: 0;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
+  display: none;
+  position: absolute;
+  right: 0;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
 }
 .right-top-tab:hover .right-top-tab-content {
-    display: block;
+  display: block;
 }
 .right-top-tab-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
 }
 .right-top-tab-content a:hover {
-    background-color: #f1f1f1;
+  background-color: #f1f1f1;
 }
